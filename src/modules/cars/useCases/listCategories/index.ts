@@ -1,8 +1,8 @@
-import { CategoriesRepository } from '../../repositories/implementations/CategoriesRepository';
+import { PostgresCategoriesRepository } from '../../repositories/implementations/PostgresCategoriesRepository';
 import { ListCategoiresUseCase } from './ListCategoiresUseCase';
 import { ListCategoriesController } from './ListCategoriesController';
 
-const categoriesRepository = CategoriesRepository.getInstance();
+const categoriesRepository = null;
 const listCategoriesUseCase = new ListCategoiresUseCase(categoriesRepository);
 const listCategoriesController = new ListCategoriesController(
   listCategoriesUseCase,

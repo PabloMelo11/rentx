@@ -1,7 +1,7 @@
 import fs from 'fs';
 import csvParse from 'csv-parse';
 
-import { CategoriesRepository } from '../../repositories/implementations/CategoriesRepository';
+import { PostgresCategoriesRepository } from '../../repositories/implementations/PostgresCategoriesRepository';
 
 interface IImportCategory {
   name: string;
@@ -9,7 +9,7 @@ interface IImportCategory {
 }
 
 class ImportCategoryUseCase {
-  constructor(private categoriesRepository: CategoriesRepository) {}
+  constructor(private categoriesRepository: PostgresCategoriesRepository) {}
 
   private loadCategories(
     file: Express.Multer.File,
