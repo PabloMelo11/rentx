@@ -1,5 +1,7 @@
 import { container } from 'tsyringe';
 
+import '../../modules/accounts/providers';
+
 import { ICategoriesRepository } from '../../modules/cars/repositories/ICategoriesRepository';
 import { PostgresCategoriesRepository } from '../../modules/cars/repositories/implementations/PostgresCategoriesRepository';
 
