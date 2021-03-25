@@ -1,5 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
+import { AppError } from '../../../../errors/AppError';
+
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 import { IHashProvider } from '../../providers/HashProvider/IHashProvider';
 import { ITokenProvider } from '../../providers/TokenProvider/ITokenProvider';
@@ -34,7 +36,7 @@ class AuthenticateUserUseCase {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
-      throw new Error('Email or password incorrect');
+      throw new AppError('Email or password incorrect');
     }
 
     const passwordMatch = await this.hashProvider.compareHash(
@@ -43,7 +45,7 @@ class AuthenticateUserUseCase {
     );
 
     if (!passwordMatch) {
-      throw new Error('Email or password incorrect');
+      throw new AppError('Email or password incorrect');
     }
 
     const token = this.tokenProvider.generateToken({
