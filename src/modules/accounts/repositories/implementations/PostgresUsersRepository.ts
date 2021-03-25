@@ -17,14 +17,12 @@ class PostgresUsersRepository implements IUsersRepository {
     email,
     driver_license,
     password,
-    username,
   }: ICreateUserDTO): Promise<void> {
     const user = this.repository.create({
       name,
       email,
       driver_license,
       password,
-      username,
     });
 
     await this.repository.save(user);
