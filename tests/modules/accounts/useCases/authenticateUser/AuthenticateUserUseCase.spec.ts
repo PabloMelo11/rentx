@@ -1,9 +1,9 @@
-import { AppError } from '../../../../../src/errors/AppError';
+import { AppError } from '@errors/AppError';
 
-import { UsersRepositoryInMemory } from '../../../../../src/modules/accounts/repositories/implementations/inMemory/UsersRepository';
-import { HashProviderInMemory } from '../../../../../src/modules/accounts/providers/HashProvider/implementations/inMemory/HashProvider';
-import { TokenProviderInMemory } from '../../../../../src/modules/accounts/providers/TokenProvider/implementations/inMemory/TokenProvider';
-import { AuthenticateUserUseCase } from '../../../../../src/modules/accounts/useCases/authenticateUser/AuthenticateUserUseCase';
+import { UsersRepositoryInMemory } from '@modules/accounts/repositories/implementations/inMemory/UsersRepository';
+import { HashProviderInMemory } from '@modules/accounts/providers/HashProvider/implementations/inMemory/HashProvider';
+import { TokenProviderInMemory } from '@modules/accounts/providers/TokenProvider/implementations/inMemory/TokenProvider';
+import { AuthenticateUserUseCase } from '@modules/accounts/useCases/authenticateUser/AuthenticateUserUseCase';
 
 let usersRepositoryInMemory: UsersRepositoryInMemory;
 let hashProvider: HashProviderInMemory;
