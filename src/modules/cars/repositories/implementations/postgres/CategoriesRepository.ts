@@ -5,7 +5,7 @@ import {
   ICreateCategoryDTO,
 } from '../../ICategoriesRepository';
 
-class PostgresCategoriesRepository implements ICategoriesRepository {
+class CategoriesRepositoryPostgres implements ICategoriesRepository {
   private repository: Repository<Category>;
 
   constructor() {
@@ -32,4 +32,4 @@ class PostgresCategoriesRepository implements ICategoriesRepository {
   }
 }
 
-export { PostgresCategoriesRepository };
+export { CategoriesRepositoryPostgres };

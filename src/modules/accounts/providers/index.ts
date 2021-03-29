@@ -1,14 +1,14 @@
 import { container } from 'tsyringe';
 
 import { IHashProvider } from './HashProvider/IHashProvider';
-import { BCryptHashProvider } from './HashProvider/implementations/BCryptHashProvider';
+import { HashProviderBCrypt } from './HashProvider/implementations/bcrypt/HashProvider';
 
 import { ITokenProvider } from './TokenProvider/ITokenProvider';
-import { JsonWebTokenProvider } from './TokenProvider/implementations/JsonWebTokenProvider';
+import { TokenProviderJsonWebToken } from './TokenProvider/implementations/jsonwebtoken/TokenProvider';
 
-container.registerSingleton<IHashProvider>('HashProvider', BCryptHashProvider);
+container.registerSingleton<IHashProvider>('HashProvider', HashProviderBCrypt);
 
 container.registerSingleton<ITokenProvider>(
   'TokenProvider',
-  JsonWebTokenProvider,
+  TokenProviderJsonWebToken,
 );

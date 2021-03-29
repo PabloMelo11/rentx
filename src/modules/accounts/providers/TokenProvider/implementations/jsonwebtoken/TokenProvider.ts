@@ -1,9 +1,9 @@
 import { sign } from 'jsonwebtoken';
 
-import { ITokenProvider } from '../ITokenProvider';
-import { IGenerateTokenDTO } from '../../../dtos/IGenerateTokenDTO';
+import { ITokenProvider } from '../../ITokenProvider';
+import { IGenerateTokenDTO } from '../../../../dtos/IGenerateTokenDTO';
 
-class JsonWebTokenProvider implements ITokenProvider {
+class TokenProviderJsonWebToken implements ITokenProvider {
   public generateToken({
     payload = {},
     secret,
@@ -18,4 +18,4 @@ class JsonWebTokenProvider implements ITokenProvider {
   }
 }
 
-export { JsonWebTokenProvider };
+export { TokenProviderJsonWebToken };

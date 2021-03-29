@@ -5,7 +5,7 @@ import {
   ICreateSpecificationDTO,
 } from '../../ISpecificationRepository';
 
-class PostgresSpecificationsRepository implements ISpecificationRepository {
+class SpecificationsRepositoryPostgres implements ISpecificationRepository {
   private repository: Repository<Specification>;
 
   constructor() {
@@ -13,19 +13,19 @@ class PostgresSpecificationsRepository implements ISpecificationRepository {
   }
 
   async create({ name, description }: ICreateSpecificationDTO): Promise<void> {
-    const speficiation = this.repository.create({
+    const specification = this.repository.create({
       name,
       description,
     });
 
-    await this.repository.save(speficiation);
+    await this.repository.save(specification);
   }
 
   async findByName(name: string): Promise<Specification | undefined> {
-    const speficiation = await this.repository.findOne({ where: { name } });
+    const specification = await this.repository.findOne({ where: { name } });
 
-    return speficiation;
+    return specification;
   }
 }
 
-export { PostgresSpecificationsRepository };
+export { SpecificationsRepositoryPostgres };

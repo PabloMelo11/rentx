@@ -1,11 +1,11 @@
 import { getRepository, Repository } from 'typeorm';
 
-import { User } from '../../entities/User';
+import { User } from '../../../entities/User';
 
-import { IUsersRepository } from '../IUsersRepository';
-import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
+import { IUsersRepository } from '../../IUsersRepository';
+import { ICreateUserDTO } from '../../../dtos/ICreateUserDTO';
 
-class PostgresUsersRepository implements IUsersRepository {
+class UsersRepositoryPostgres implements IUsersRepository {
   private repository: Repository<User>;
 
   constructor() {
@@ -45,4 +45,4 @@ class PostgresUsersRepository implements IUsersRepository {
   }
 }
 
-export { PostgresUsersRepository };
+export { UsersRepositoryPostgres };
