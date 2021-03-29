@@ -1,4 +1,4 @@
-import { AppError } from '@errors/AppError';
+import { AppError } from '@shared/errors/AppError';
 
 import { UsersRepositoryInMemory } from '@modules/accounts/repositories/implementations/inMemory/UsersRepository';
 import { HashProviderInMemory } from '@modules/accounts/providers/HashProvider/implementations/inMemory/HashProvider';
