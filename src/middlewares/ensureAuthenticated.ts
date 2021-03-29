@@ -3,7 +3,7 @@ import { verify } from 'jsonwebtoken';
 
 import { AppError } from '../errors/AppError';
 
-import { PostgresUsersRepository } from '../modules/accounts/repositories/implementations/PostgresUsersRepository';
+import { UsersRepositoryPostgres } from '@modules/accounts/repositories/implementations/postgres/UsersRepository';
 
 interface IPayload {
   sub: string;
@@ -25,7 +25,7 @@ export async function ensureAuthenticated(
   try {
     const { sub: user_id } = verify(token, '1121200616PaGoThe2Us') as IPayload;
 
-    const usersRepository = new PostgresUsersRepository();
+    const usersRepository = new UsersRepositoryPostgres();
 
     const user = await usersRepository.findById(user_id);
 

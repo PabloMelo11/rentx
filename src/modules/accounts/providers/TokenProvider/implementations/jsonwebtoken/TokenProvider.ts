@@ -1,7 +1,7 @@
 import { sign } from 'jsonwebtoken';
 
-import { ITokenProvider } from '../../ITokenProvider';
-import { IGenerateTokenDTO } from '../../../../dtos/IGenerateTokenDTO';
+import { ITokenProvider } from '@modules/accounts/providers/TokenProvider/ITokenProvider';
+import { IGenerateTokenDTO } from '@modules/accounts/dtos/IGenerateTokenDTO';
 
 class TokenProviderJsonWebToken implements ITokenProvider {
   public generateToken({

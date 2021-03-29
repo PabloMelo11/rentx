@@ -2,7 +2,7 @@ import fs from 'fs';
 import csvParse from 'csv-parse';
 import { injectable, inject } from 'tsyringe';
 
-import { PostgresCategoriesRepository } from '../../repositories/implementations/PostgresCategoriesRepository';
+import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
 
 interface IImportCategory {
   name: string;
@@ -13,7 +13,7 @@ interface IImportCategory {
 class ImportCategoryUseCase {
   constructor(
     @inject('CategoriesRepository')
-    private categoriesRepository: PostgresCategoriesRepository,
+    private categoriesRepository: ICategoriesRepository,
   ) {}
 
   private loadCategories(

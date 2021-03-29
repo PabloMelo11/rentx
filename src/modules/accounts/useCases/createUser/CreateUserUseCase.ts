@@ -1,11 +1,10 @@
 import { inject, injectable } from 'tsyringe';
 
-import { AppError } from '../../../../errors/AppError';
+import { AppError } from '@errors/AppError';
 
-import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
-
-import { IUsersRepository } from '../../repositories/IUsersRepository';
-import { IHashProvider } from '../../providers/HashProvider/IHashProvider';
+import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO';
+import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
+import { IHashProvider } from '@modules/accounts/providers/HashProvider/IHashProvider';
 
 @injectable()
 class CreateUserUseCase {

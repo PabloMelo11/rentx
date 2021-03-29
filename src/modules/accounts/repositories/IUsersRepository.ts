@@ -1,6 +1,6 @@
-import { User } from '../entities/User';
+import { User } from '@modules/accounts/entities/User';
 
-import { ICreateUserDTO } from '../dtos/ICreateUserDTO';
+import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO';
 
 interface IUsersRepository {
   create(data: ICreateUserDTO): Promise<void>;
