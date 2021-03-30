@@ -1,6 +1,6 @@
 import { AppError } from '@shared/errors/AppError';
 
-import { UsersRepositoryInMemory } from '@modules/accounts/repositories/implementations/inMemory/UsersRepository';
+import { UsersRepositoryInMemory } from '@modules/accounts/repositories/inMemory/UsersRepository';
 import { HashProviderInMemory } from '@modules/accounts/providers/HashProvider/implementations/inMemory/HashProvider';
 import { TokenProviderInMemory } from '@modules/accounts/providers/TokenProvider/implementations/inMemory/TokenProvider';
 import { AuthenticateUserUseCase } from '@modules/accounts/useCases/authenticateUser/AuthenticateUserUseCase';
