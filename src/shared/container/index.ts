@@ -11,6 +11,9 @@ import { SpecificationsRepositoryPostgres } from '@modules/cars/infra/typeorm/re
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { UsersRepositoryPostgres } from '@modules/accounts/infra/typeorm/repositories/postgres/UsersRepository';
 
+import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
+import { CarsRepositoryPostgres } from '@modules/cars/infra/typeorm/repositories/postgres/CarsRepository';
+
 container.registerSingleton<ICategoriesRepository>(
   'CategoriesRepository',
   CategoriesRepositoryPostgres,
@@ -24,4 +27,9 @@ container.registerSingleton<ISpecificationRepository>(
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
   UsersRepositoryPostgres,
+);
+
+container.registerSingleton<ICarsRepository>(
+  'CarsRepository',
+  CarsRepositoryPostgres,
 );
