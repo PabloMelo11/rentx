@@ -4,10 +4,14 @@ import { ensureAuthenticated } from '@shared/infra/http/middlewares/ensureAuthen
 import { ensureAdmin } from '@shared/infra/http/middlewares/ensureAdmin';
 
 import { CreateCarController } from '@modules/cars/useCases/createCar/CreateCarController';
+import { ListAvailableCarsController } from '@modules/cars/useCases/listAvailableCars/ListAvailableCarsController';
 
 const carsRoutes = Router();
 
 const createCarController = new CreateCarController();
+const listAvailableCarsController = new ListAvailableCarsController();
+
+carsRoutes.get('/available', listAvailableCarsController.handle);
 
 carsRoutes.post(
   '/',

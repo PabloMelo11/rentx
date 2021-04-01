@@ -1,7 +1,9 @@
 import { Car } from '@modules/cars/infra/typeorm/entities/Car';
 
-import { ICreateCarDTO } from '@modules/cars/dtos/ICreateCarDTO';
 import { ICarsRepository } from '../ICarsRepository';
+
+import { ICreateCarDTO } from '@modules/cars/dtos/ICreateCarDTO';
+import { IRequestListCarsDTO } from '@modules/cars/dtos/IRequestListCarsDTO';
 
 class CarsRepositoryInMemory implements ICarsRepository {
   private cars: Car[] = [];
@@ -22,6 +24,25 @@ class CarsRepositoryInMemory implements ICarsRepository {
     );
 
     return car;
+  }
+
+  async findAllAvailable({
+    category_id,
+    brand,
+    name,
+  }: IRequestListCarsDTO): Promise<Car[]> {
+    const cars = this.cars.filter(car => {
+      if (
+        car.available === true ||
+        (brand && car.brand === brand) ||
+        (category_id && car.category_id === category_id) ||
+        (name && car.name === name)
+      ) {
+        return car;
+      }
+    });
+
+    return cars;
   }
 }
 
