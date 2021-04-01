@@ -5,7 +5,7 @@ import '@modules/accounts/providers';
 import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
 import { CategoriesRepositoryPostgres } from '@modules/cars/infra/typeorm/repositories/postgres/CategoriesRepository';
 
-import { ISpecificationRepository } from '@modules/cars/repositories/ISpecificationRepository';
+import { ISpecificationsRepository } from '@modules/cars/repositories/ISpecificationsRepository';
 import { SpecificationsRepositoryPostgres } from '@modules/cars/infra/typeorm/repositories/postgres/SpecificationRepository';
 
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
@@ -14,12 +14,15 @@ import { UsersRepositoryPostgres } from '@modules/accounts/infra/typeorm/reposit
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
 import { CarsRepositoryPostgres } from '@modules/cars/infra/typeorm/repositories/postgres/CarsRepository';
 
+import { ICarImagesRepository } from '@modules/cars/repositories/ICarImagesRepository';
+import { CarImagesRepositoryPostgres } from '@modules/cars/infra/typeorm/repositories/postgres/CarImagesRepository';
+
 container.registerSingleton<ICategoriesRepository>(
   'CategoriesRepository',
   CategoriesRepositoryPostgres,
 );
 
-container.registerSingleton<ISpecificationRepository>(
+container.registerSingleton<ISpecificationsRepository>(
   'SpecificationsRepository',
   SpecificationsRepositoryPostgres,
 );
@@ -32,4 +35,9 @@ container.registerSingleton<IUsersRepository>(
 container.registerSingleton<ICarsRepository>(
   'CarsRepository',
   CarsRepositoryPostgres,
+);
+
+container.registerSingleton<ICarImagesRepository>(
+  'CarImagesRepository',
+  CarImagesRepositoryPostgres,
 );

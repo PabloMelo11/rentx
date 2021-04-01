@@ -1,9 +1,9 @@
 import { Specification } from '@modules/cars/infra/typeorm/entities/Specification';
 
-import { ISpecificationRepository } from '../ISpecificationRepository';
+import { ISpecificationsRepository } from '../ISpecificationsRepository';
 import { ICreateSpecificationDTO } from '@modules/cars/dtos/ICreateSpecificationDTO';
 
-class SpecificationsRepositoryInMemory implements ISpecificationRepository {
+class SpecificationsRepositoryInMemory implements ISpecificationsRepository {
   private specifications: Specification[] = [];
 
   async create(data: ICreateSpecificationDTO): Promise<Specification> {

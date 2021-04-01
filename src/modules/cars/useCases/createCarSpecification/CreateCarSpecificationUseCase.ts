@@ -5,7 +5,7 @@ import { AppError } from '@shared/errors/AppError';
 import { Car } from '@modules/cars/infra/typeorm/entities/Car';
 
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
-import { ISpecificationRepository } from '@modules/cars/repositories/ISpecificationRepository';
+import { ISpecificationsRepository } from '@modules/cars/repositories/ISpecificationsRepository';
 
 import { IRequestCreateCarSpecificationDTO } from '@modules/cars/dtos/IRequestCreateCarSpecificationDTO';
 
@@ -16,7 +16,7 @@ class CreateCarSpecificationUseCase {
     private carsRepository: ICarsRepository,
 
     @inject('SpecificationsRepository')
-    private specificationsRepository: ISpecificationRepository,
+    private specificationsRepository: ISpecificationsRepository,
   ) {}
 
   async execute({
