@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
 
-import '@modules/accounts/providers';
+import '@shared/container/providers';
 
 import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
 import { CategoriesRepositoryPostgres } from '@modules/cars/infra/typeorm/repositories/postgres/CategoriesRepository';
@@ -16,6 +16,9 @@ import { CarsRepositoryPostgres } from '@modules/cars/infra/typeorm/repositories
 
 import { ICarImagesRepository } from '@modules/cars/repositories/ICarImagesRepository';
 import { CarImagesRepositoryPostgres } from '@modules/cars/infra/typeorm/repositories/postgres/CarImagesRepository';
+
+import { IRentalsRepository } from '@modules/rentals/repositories/IRentalsRepository';
+import { RentalsRepositoryPostgres } from '@modules/rentals/infra/typeorm/repositories/postgres/RentalsRepository';
 
 container.registerSingleton<ICategoriesRepository>(
   'CategoriesRepository',
@@ -40,4 +43,9 @@ container.registerSingleton<ICarsRepository>(
 container.registerSingleton<ICarImagesRepository>(
   'CarImagesRepository',
   CarImagesRepositoryPostgres,
+);
+
+container.registerSingleton<IRentalsRepository>(
+  'RentalsRepository',
+  RentalsRepositoryPostgres,
 );
