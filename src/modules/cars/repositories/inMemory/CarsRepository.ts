@@ -4,6 +4,7 @@ import { ICarsRepository } from '../ICarsRepository';
 
 import { ICreateCarDTO } from '@modules/cars/dtos/ICreateCarDTO';
 import { IRequestListCarsDTO } from '@modules/cars/dtos/IRequestListCarsDTO';
+import { IUpdateCarAvailableDTO } from '@modules/cars/dtos/IUpdateCarAvailableDTO';
 
 class CarsRepositoryInMemory implements ICarsRepository {
   private cars: Car[] = [];
@@ -49,6 +50,15 @@ class CarsRepositoryInMemory implements ICarsRepository {
     const car = await this.cars.find(car => car.id === car_id);
 
     return car;
+  }
+
+  async updateAvailable({
+    available,
+    car_id,
+  }: IUpdateCarAvailableDTO): Promise<void> {
+    const carIndex = this.cars.findIndex(car => car.id === car_id);
+
+    this.cars[carIndex].available = available;
   }
 }
 

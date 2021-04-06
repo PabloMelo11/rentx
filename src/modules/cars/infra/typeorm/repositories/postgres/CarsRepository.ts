@@ -3,6 +3,8 @@ import { getRepository, Repository } from 'typeorm';
 import { Car } from '@modules/cars/infra/typeorm/entities/Car';
 
 import { ICreateCarDTO } from '@modules/cars/dtos/ICreateCarDTO';
+import { IUpdateCarAvailableDTO } from '@modules/cars/dtos/IUpdateCarAvailableDTO';
+
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
 import { IRequestListCarsDTO } from '@modules/cars/dtos/IRequestListCarsDTO';
 
@@ -58,6 +60,19 @@ class CarsRepositoryPostgres implements ICarsRepository {
     const car = await this.repository.findOne(car_id);
 
     return car;
+  }
+
+  async updateAvailable({
+    car_id,
+    available,
+  }: IUpdateCarAvailableDTO): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({ available })
+      .where('id = :id')
+      .setParameters({ id: car_id })
+      .execute();
   }
 }
 
