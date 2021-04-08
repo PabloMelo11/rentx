@@ -7,7 +7,7 @@ class DateProviderInMemory implements IDateProvider {
     return new Date(date).toISOString();
   }
 
-  compareInHours({ start_date, end_date }: ICompareDateDTO): Number {
+  compareInHours({ start_date, end_date }: ICompareDateDTO): number {
     return Math.round(
       Math.abs(start_date.getTime() - end_date.getTime()) / 3600000,
     );
@@ -15,6 +15,10 @@ class DateProviderInMemory implements IDateProvider {
 
   dateNow() {
     return new Date();
+  }
+
+  compareInDays({ start_date, end_date }: ICompareDateDTO): number {
+    return start_date.getTime() - end_date.getTime();
   }
 }
 

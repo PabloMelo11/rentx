@@ -31,6 +31,12 @@ class RentalsRepositoryPostgres implements IRentalsRepository {
 
     return openByUser;
   }
+
+  async findById(rental_id: string): Promise<Rental | undefined> {
+    const rental = await this.repository.findOne(rental_id);
+
+    return rental;
+  }
 }
 
 export { RentalsRepositoryPostgres };

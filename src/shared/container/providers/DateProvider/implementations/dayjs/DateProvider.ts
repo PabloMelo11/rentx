@@ -12,7 +12,7 @@ class DateProviderDayjs implements IDateProvider {
     return dayjs(date).utc().local().format();
   }
 
-  compareInHours({ start_date, end_date }: ICompareDateDTO): Number {
+  compareInHours({ start_date, end_date }: ICompareDateDTO): number {
     const start_date_utc = this.convertToUTC(start_date);
     const end_date_utc = this.convertToUTC(end_date);
 
@@ -21,6 +21,13 @@ class DateProviderDayjs implements IDateProvider {
 
   dateNow() {
     return dayjs().toDate();
+  }
+
+  compareInDays({ start_date, end_date }: ICompareDateDTO): number {
+    const start_date_utc = this.convertToUTC(start_date);
+    const end_date_utc = this.convertToUTC(end_date);
+
+    return dayjs(end_date_utc).diff(start_date_utc, 'days');
   }
 }
 
