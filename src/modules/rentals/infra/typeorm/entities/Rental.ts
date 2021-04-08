@@ -6,7 +6,10 @@ import {
   PrimaryColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
+import { Car } from '@modules/cars/infra/typeorm/entities/Car';
 
 @Entity('rentals')
 class Rental {
@@ -36,6 +39,10 @@ class Rental {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @ManyToOne(() => Car)
+  @JoinColumn({ name: 'car_id' })
+  car: Car;
 
   constructor() {
     if (!this.id) {
