@@ -20,9 +20,7 @@ class CreateCarUseCase {
     );
 
     if (carAlreadyExists) {
-      throw new AppError(
-        `Car already exists with license plate ${data.license_plate}`,
-      );
+      throw new AppError('Car already exists with license plate');
     }
 
     const car = await this.carsRepository.create(data);
