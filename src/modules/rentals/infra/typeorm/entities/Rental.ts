@@ -29,7 +29,7 @@ class Rental {
   expected_return_date: Date;
 
   @Column()
-  total: Number;
+  total: number;
 
   @CreateDateColumn()
   created_at: Date;
