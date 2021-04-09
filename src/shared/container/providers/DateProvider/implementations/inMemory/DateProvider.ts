@@ -20,6 +20,14 @@ class DateProviderInMemory implements IDateProvider {
   compareInDays({ start_date, end_date }: ICompareDateDTO): number {
     return start_date.getTime() - end_date.getTime();
   }
+
+  addDays(days: number): Date {
+    let dateNow = new Date();
+
+    const newDate = dateNow.setDate(dateNow.getDate() + days);
+
+    return new Date(newDate);
+  }
 }
 
 export { DateProviderInMemory };

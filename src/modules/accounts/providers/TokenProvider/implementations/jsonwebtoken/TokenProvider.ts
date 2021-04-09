@@ -8,10 +8,11 @@ class TokenProviderJsonWebToken implements ITokenProvider {
     payload = {},
     secret,
     subject,
+    expiresIn,
   }: IGenerateTokenDTO): string {
     const token = sign(payload, secret, {
       subject,
-      expiresIn: '1d',
+      expiresIn,
     });
 
     return token;

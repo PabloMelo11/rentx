@@ -1,26 +1,38 @@
 import { AppError } from '@shared/errors/AppError';
 
 import { UsersRepositoryInMemory } from '@modules/accounts/repositories/inMemory/UsersRepository';
+import { UsersTokensRepositoryInMemory } from '@modules/accounts/repositories/inMemory/UsersTokensRepository';
+import { DateProviderInMemory } from '@shared/container/providers/DateProvider/implementations/inMemory/DateProvider';
+
 import { HashProviderInMemory } from '@modules/accounts/providers/HashProvider/implementations/inMemory/HashProvider';
 import { TokenProviderInMemory } from '@modules/accounts/providers/TokenProvider/implementations/inMemory/TokenProvider';
+
 import { AuthenticateUserUseCase } from '@modules/accounts/useCases/authenticateUser/AuthenticateUserUseCase';
 
 let usersRepositoryInMemory: UsersRepositoryInMemory;
+let usersTokensRepositoryInMemory: UsersTokensRepositoryInMemory;
+
 let hashProvider: HashProviderInMemory;
 let tokenProvider: TokenProviderInMemory;
+let dateProvider: DateProviderInMemory;
 
 let authenticateUserUseCase: AuthenticateUserUseCase;
 
 describe('Authenticate User', () => {
   beforeEach(() => {
     usersRepositoryInMemory = new UsersRepositoryInMemory();
+    usersTokensRepositoryInMemory = new UsersTokensRepositoryInMemory();
+
     hashProvider = new HashProviderInMemory();
     tokenProvider = new TokenProviderInMemory();
+    dateProvider = new DateProviderInMemory();
 
     authenticateUserUseCase = new AuthenticateUserUseCase(
       usersRepositoryInMemory,
       hashProvider,
       tokenProvider,
+      usersTokensRepositoryInMemory,
+      dateProvider,
     );
   });
 
