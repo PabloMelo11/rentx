@@ -20,6 +20,9 @@ import { CarImagesRepositoryPostgres } from '@modules/cars/infra/typeorm/reposit
 import { IRentalsRepository } from '@modules/rentals/repositories/IRentalsRepository';
 import { RentalsRepositoryPostgres } from '@modules/rentals/infra/typeorm/repositories/postgres/RentalsRepository';
 
+import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
+import { UsersTokensRepositoryPostgres } from '@modules/accounts/infra/typeorm/repositories/postgres/UsersTokensRepository';
+
 container.registerSingleton<ICategoriesRepository>(
   'CategoriesRepository',
   CategoriesRepositoryPostgres,
@@ -48,4 +51,9 @@ container.registerSingleton<ICarImagesRepository>(
 container.registerSingleton<IRentalsRepository>(
   'RentalsRepository',
   RentalsRepositoryPostgres,
+);
+
+container.registerSingleton<IUsersTokensRepository>(
+  'UsersTokensRepository',
+  UsersTokensRepositoryPostgres,
 );
