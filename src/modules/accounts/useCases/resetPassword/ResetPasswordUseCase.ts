@@ -6,7 +6,7 @@ import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTok
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 
 import { IDateProvider } from '@shared/container/providers/DateProvider/IDateProvider';
-import { IHashProvider } from '@modules/accounts/providers/HashProvider/IHashProvider';
+import { IHashProvider } from '@shared/container/providers/HashProvider/IHashProvider';
 
 import { IRequestResetPasswordDTO } from '@modules/accounts/dtos/IRequestResetPasswordDTO';
 

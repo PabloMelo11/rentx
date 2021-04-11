@@ -1,5 +1,5 @@
 import { ITokenProvider } from '../../ITokenProvider';
-import { IGenerateTokenDTO } from '../../../../dtos/IGenerateTokenDTO';
+import { IGenerateTokenDTO } from '../../../../../../modules/accounts/dtos/IGenerateTokenDTO';
 import { IVerifyTokenDTO } from '@modules/accounts/dtos/IVerifyTokenDTO';
 
 interface IPayload {

@@ -7,8 +7,8 @@ import auth from '@config/auth';
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
 
-import { IHashProvider } from '@modules/accounts/providers/HashProvider/IHashProvider';
-import { ITokenProvider } from '@modules/accounts/providers/TokenProvider/ITokenProvider';
+import { IHashProvider } from '@shared/container/providers/HashProvider/IHashProvider';
+import { ITokenProvider } from '@shared/container/providers/TokenProvider/ITokenProvider';
 import { IDateProvider } from '@shared/container/providers/DateProvider/IDateProvider';
 
 interface IRequest {

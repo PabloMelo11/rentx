@@ -6,7 +6,7 @@ import auth from '@config/auth';
 
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
 
-import { ITokenProvider } from '@modules/accounts/providers/TokenProvider/ITokenProvider';
+import { ITokenProvider } from '@shared/container/providers/TokenProvider/ITokenProvider';
 import { IDateProvider } from '@shared/container/providers/DateProvider/IDateProvider';
 
 interface IPayloadVerifyToken {

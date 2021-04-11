@@ -4,8 +4,8 @@ import { UsersRepositoryInMemory } from '@modules/accounts/repositories/inMemory
 import { UsersTokensRepositoryInMemory } from '@modules/accounts/repositories/inMemory/UsersTokensRepository';
 import { DateProviderInMemory } from '@shared/container/providers/DateProvider/implementations/inMemory/DateProvider';
 
-import { HashProviderInMemory } from '@modules/accounts/providers/HashProvider/implementations/inMemory/HashProvider';
-import { TokenProviderInMemory } from '@modules/accounts/providers/TokenProvider/implementations/inMemory/TokenProvider';
+import { HashProviderInMemory } from '@shared/container/providers/HashProvider/implementations/inMemory/HashProvider';
+import { TokenProviderInMemory } from '@shared/container/providers/TokenProvider/implementations/inMemory/TokenProvider';
 
 import { AuthenticateUserUseCase } from '@modules/accounts/useCases/authenticateUser/AuthenticateUserUseCase';
 

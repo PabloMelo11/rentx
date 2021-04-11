@@ -1,6 +1,6 @@
 import { sign, verify } from 'jsonwebtoken';
 
-import { ITokenProvider } from '@modules/accounts/providers/TokenProvider/ITokenProvider';
+import { ITokenProvider } from '@shared/container/providers/TokenProvider/ITokenProvider';
 
 import { IGenerateTokenDTO } from '@modules/accounts/dtos/IGenerateTokenDTO';
 import { IVerifyTokenDTO } from '@modules/accounts/dtos/IVerifyTokenDTO';
