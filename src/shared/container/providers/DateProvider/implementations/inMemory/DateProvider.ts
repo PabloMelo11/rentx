@@ -36,6 +36,17 @@ class DateProviderInMemory implements IDateProvider {
 
     return new Date(newDate);
   }
+
+  compareIfBefore({ start_date, end_date }: ICompareDateDTO): boolean {
+    let diffInDate = start_date.getTime() - end_date.getTime();
+    diffInDate = diffInDate / (1000 * 60 * 60 * 24);
+
+    if (diffInDate < 0) {
+      return true;
+    }
+
+    return false;
+  }
 }
 
 export { DateProviderInMemory };

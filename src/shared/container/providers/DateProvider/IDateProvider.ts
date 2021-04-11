@@ -7,6 +7,7 @@ interface IDateProvider {
   compareInDays(data: ICompareDateDTO): number;
   addDays(days: number): Date;
   addHours(hours: number): Date;
+  compareIfBefore(data: ICompareDateDTO): boolean;
 }
 
 export { IDateProvider };

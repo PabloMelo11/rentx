@@ -37,6 +37,16 @@ class UsersTokensRepositoryPostgres implements IUsersTokensRepository {
   async deleteById(token_id: string): Promise<void> {
     await this.repository.delete(token_id);
   }
+
+  async findByToken(token: string): Promise<UserTokens> {
+    const userToken = this.repository.findOne({
+      where: {
+        refresh_token: token,
+      },
+    });
+
+    return userToken;
+  }
 }
 
 export { UsersTokensRepositoryPostgres };
