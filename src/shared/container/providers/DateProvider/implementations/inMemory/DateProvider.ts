@@ -22,9 +22,17 @@ class DateProviderInMemory implements IDateProvider {
   }
 
   addDays(days: number): Date {
-    let dateNow = new Date();
+    const dateNow = new Date();
 
     const newDate = dateNow.setDate(dateNow.getDate() + days);
+
+    return new Date(newDate);
+  }
+
+  addHours(hours: number): Date {
+    const dateNow = new Date();
+
+    const newDate = dateNow.setHours(dateNow.getHours() + hours);
 
     return new Date(newDate);
   }
