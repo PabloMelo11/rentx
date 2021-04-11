@@ -33,13 +33,24 @@ class ResetPasswordUseCase {
       throw new AppError('Token invalid');
     }
 
-    const compareIfBefore = this.dateProvider.compareIfBefore({
-      start_date: userToken.expires_date,
-      end_date: this.dateProvider.dateNow(),
+    const dateNow = this.dateProvider.dateNow();
+
+    const compareDay = this.dateProvider.compareInDays({
+      start_date: dateNow,
+      end_date: userToken.expires_date,
     });
 
-    if (compareIfBefore) {
-      throw new AppError('Token expired');
+    if (compareDay >= 1) {
+      throw new AppError('Token expired in day');
+    }
+
+    const compareHour = this.dateProvider.compareInHours({
+      start_date: dateNow,
+      end_date: userToken.expires_date,
+    });
+
+    if (compareHour > 3) {
+      throw new AppError('Token expired in hour');
     }
 
     const user = await this.usersRepository.findById(userToken.user_id);
