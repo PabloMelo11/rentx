@@ -1,7 +1,8 @@
 interface ISendForgotPasswordMailDTO {
   to: string;
   subject: string;
-  body: string;
+  variables: any;
+  path: string;
 }
 
 export { ISendForgotPasswordMailDTO };

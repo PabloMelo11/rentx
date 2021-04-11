@@ -1,3 +1,5 @@
+import fs from 'fs';
+import handlebars from 'handlebars';
 import nodemailer, { Transporter } from 'nodemailer';
 
 import { IMailProvider } from '../../IMailProvider';
@@ -28,15 +30,21 @@ class MailProviderEthereal implements IMailProvider {
 
   async sendMail({
     to,
-    body,
+    variables,
+    path,
     subject,
   }: ISendForgotPasswordMailDTO): Promise<void> {
+    const templateFileContent = fs.readFileSync(path).toString('utf-8');
+
+    const templateParse = handlebars.compile(templateFileContent);
+
+    const templateHTML = templateParse(variables);
+
     const message = await this.client.sendMail({
       to,
       from: 'Rentx <noreplay@rentx.com.br>',
       subject,
-      text: body,
-      html: body,
+      html: templateHTML,
     });
 
     console.log('Message sent: %s', message.messageId);
