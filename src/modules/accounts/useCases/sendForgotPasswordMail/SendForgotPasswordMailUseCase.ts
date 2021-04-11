@@ -7,6 +7,7 @@ import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepositor
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
 
 import { IDateProvider } from '@shared/container/providers/DateProvider/IDateProvider';
+import { IMailProvider } from '@shared/container/providers/MailProvider/IMailProvider';
 
 @injectable()
 class SendForgotPasswordMailUseCase {
@@ -19,6 +20,9 @@ class SendForgotPasswordMailUseCase {
 
     @inject('DateProvider')
     private dateProvider: IDateProvider,
+
+    @inject('MailProvider')
+    private mailProvider: IMailProvider,
   ) {}
 
   async execute(email: string) {
@@ -36,6 +40,12 @@ class SendForgotPasswordMailUseCase {
       refresh_token: token,
       user_id: user.id,
       expires_date,
+    });
+
+    await this.mailProvider.sendMail({
+      to: email,
+      subject: 'Recuperação de senha',
+      body: `O link para o reset da senha: ${token}`,
     });
   }
 }
