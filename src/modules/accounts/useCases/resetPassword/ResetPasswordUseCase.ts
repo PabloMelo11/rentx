@@ -41,7 +41,7 @@ class ResetPasswordUseCase {
     });
 
     if (compareDay >= 1) {
-      throw new AppError('Token expired in day');
+      throw new AppError('Token expired');
     }
 
     const compareHour = this.dateProvider.compareInHours({
@@ -50,7 +50,7 @@ class ResetPasswordUseCase {
     });
 
     if (compareHour > 3) {
-      throw new AppError('Token expired in hour');
+      throw new AppError('Token expired');
     }
 
     const user = await this.usersRepository.findById(userToken.user_id);

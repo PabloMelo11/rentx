@@ -10,6 +10,8 @@ import {
   JoinColumn,
 } from 'typeorm';
 
+import { ITokenType } from '@shared/dtos/ITokenTypeDTO';
+
 import { User } from './User';
 
 @Entity('users_tokens')
@@ -18,7 +20,10 @@ class UserTokens {
   id: string;
 
   @Column()
-  refresh_token: string;
+  token: string;
+
+  @Column({ type: 'enum', enum: ITokenType })
+  type: ITokenType;
 
   @Column()
   user_id: string;

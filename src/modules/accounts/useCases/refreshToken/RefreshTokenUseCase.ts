@@ -1,8 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { AppError } from '@shared/errors/AppError';
-
 import auth from '@config/auth';
+
+import { AppError } from '@shared/errors/AppError';
+import { ITokenType } from '@shared/dtos/ITokenTypeDTO';
 
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
 
@@ -64,8 +65,9 @@ class RefreshTokenUseCase {
 
     await this.usersTokensRepository.create({
       expires_date: refresh_token_expires_date,
-      refresh_token: new_refresh_token,
+      token: new_refresh_token,
       user_id,
+      type: ITokenType.refresh_token,
     });
 
     return new_refresh_token;

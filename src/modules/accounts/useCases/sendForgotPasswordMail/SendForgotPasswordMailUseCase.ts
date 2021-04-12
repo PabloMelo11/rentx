@@ -3,6 +3,7 @@ import { inject, injectable } from 'tsyringe';
 import { v4 as uuidV4 } from 'uuid';
 
 import { AppError } from '@shared/errors/AppError';
+import { ITokenType } from '@shared/dtos/ITokenTypeDTO';
 
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
@@ -50,9 +51,10 @@ class SendForgotPasswordMailUseCase {
     const expires_date = this.dateProvider.addHours(3);
 
     await this.usersTokensRepository.create({
-      refresh_token: token,
+      token,
       user_id: user.id,
       expires_date,
+      type: ITokenType.forgot_password,
     });
 
     const variables = {

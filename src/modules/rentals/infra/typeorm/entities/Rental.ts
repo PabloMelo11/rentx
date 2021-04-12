@@ -9,6 +9,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
+
 import { Car } from '@modules/cars/infra/typeorm/entities/Car';
 
 @Entity('rentals')

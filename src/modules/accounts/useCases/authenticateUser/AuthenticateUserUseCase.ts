@@ -1,8 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
-import { AppError } from '@shared/errors/AppError';
-
 import auth from '@config/auth';
+
+import { AppError } from '@shared/errors/AppError';
+import { ITokenType } from '@shared/dtos/ITokenTypeDTO';
 
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
@@ -87,8 +88,9 @@ class AuthenticateUserUseCase {
 
     await this.usersTokensRepository.create({
       user_id: user.id,
-      refresh_token,
+      token: refresh_token,
       expires_date: refresh_token_expires_date,
+      type: ITokenType.refresh_token,
     });
 
     const tokenReturn: IResponse = {

@@ -1,7 +1,10 @@
+import { ITokenType } from '@shared/dtos/ITokenTypeDTO';
+
 interface ICreateUserTokenDTO {
   user_id: string;
   expires_date: Date;
-  refresh_token: string;
+  token: string;
+  type: ITokenType;
 }
 
 export { ICreateUserTokenDTO };
