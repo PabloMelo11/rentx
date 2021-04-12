@@ -24,8 +24,7 @@ class UsersTokensRepositoryInMemory implements IUsersTokensRepository {
   }: IFindTokenByUserAndRefreshTokenDTO): Promise<UserTokens> {
     const userToken = this.usersTokens.find(
       userToken =>
-        userToken.user_id === user_id &&
-        userToken.refresh_token === refresh_token,
+        userToken.user_id === user_id && userToken.token === refresh_token,
     );
 
     return userToken;
@@ -41,7 +40,7 @@ class UsersTokensRepositoryInMemory implements IUsersTokensRepository {
 
   async findByToken(token: string): Promise<UserTokens> {
     const userToken = this.usersTokens.find(
-      userToken => userToken.refresh_token === token,
+      userToken => userToken.token === token,
     );
 
     return userToken;
