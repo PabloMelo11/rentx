@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import { AppError } from '@shared/errors/AppError';
+import { AppError } from '@shared/infra/http/errors/AppError';
 
 import { Rental } from '@modules/rentals/infra/typeorm/entities/Rental';
 

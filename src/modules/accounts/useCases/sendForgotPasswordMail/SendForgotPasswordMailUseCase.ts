@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { inject, injectable } from 'tsyringe';
 import { v4 as uuidV4 } from 'uuid';
 
-import { AppError } from '@shared/errors/AppError';
+import { AppError } from '@shared/infra/http/errors/AppError';
 import { ITokenType } from '@shared/dtos/ITokenTypeDTO';
 
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';

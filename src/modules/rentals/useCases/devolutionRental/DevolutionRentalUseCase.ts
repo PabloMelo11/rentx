@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
-import { AppError } from '@shared/errors/AppError';
+import { AppError } from '@shared/infra/http/errors/AppError';
 
 import { IRentalsRepository } from '@modules/rentals/repositories/IRentalsRepository';
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';

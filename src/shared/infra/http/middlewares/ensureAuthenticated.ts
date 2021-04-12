@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
 
-import { AppError } from '@shared/errors/AppError';
+import { AppError } from '@shared/infra/http/errors/AppError';
 
 import { UsersTokensRepositoryPostgres } from '@modules/accounts/infra/typeorm/repositories/postgres/UsersTokensRepository';
 import auth from '@config/auth';

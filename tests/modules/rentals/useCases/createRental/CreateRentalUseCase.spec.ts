@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import { AppError } from '@shared/errors/AppError';
+import { AppError } from '@shared/infra/http/errors/AppError';
 
 import { RentalsRepositoryInMemory } from '@modules/rentals/repositories/inMemory/RentalsRepository';
 import { DateProviderInMemory } from '@shared/container/providers/DateProvider/implementations/inMemory/DateProvider';

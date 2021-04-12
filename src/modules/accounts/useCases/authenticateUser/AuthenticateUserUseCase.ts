@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe';
 
 import auth from '@config/auth';
 
-import { AppError } from '@shared/errors/AppError';
+import { AppError } from '@shared/infra/http/errors/AppError';
 import { ITokenType } from '@shared/dtos/ITokenTypeDTO';
 
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
