@@ -12,6 +12,9 @@ import { DateProviderDayjs } from '@shared/container/providers/DateProvider/impl
 import { IMailProvider } from '@shared/container/providers/MailProvider/IMailProvider';
 import { MailProviderEthereal } from '@shared/container/providers/MailProvider/implementations/ethereal/MailProvider';
 
+import { IStorageProvider } from '@shared/container/providers/StorageProvider/IStorageProvider';
+import { StorageProviderInMemory } from '@shared/container/providers/StorageProvider/implementations/inMemory/StorageProvider';
+
 container.registerSingleton<IHashProvider>('HashProvider', HashProviderBCrypt);
 
 container.registerSingleton<ITokenProvider>(
@@ -24,4 +27,9 @@ container.registerSingleton<IDateProvider>('DateProvider', DateProviderDayjs);
 container.registerInstance<IMailProvider>(
   'MailProvider',
   new MailProviderEthereal(),
+);
+
+container.registerSingleton<IStorageProvider>(
+  'StorageProvider',
+  StorageProviderInMemory,
 );
