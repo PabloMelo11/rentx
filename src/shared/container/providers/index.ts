@@ -13,6 +13,7 @@ import { IMailProvider } from '@shared/container/providers/MailProvider/IMailPro
 import { MailProviderEthereal } from '@shared/container/providers/MailProvider/implementations/ethereal/MailProvider';
 
 import { IStorageProvider } from '@shared/container/providers/StorageProvider/IStorageProvider';
+import { StorageProviderS3 } from '@shared/container/providers/StorageProvider/implementations/s3/StorageProvider';
 import { StorageProviderInMemory } from '@shared/container/providers/StorageProvider/implementations/inMemory/StorageProvider';
 
 container.registerSingleton<IHashProvider>('HashProvider', HashProviderBCrypt);
@@ -29,7 +30,12 @@ container.registerInstance<IMailProvider>(
   new MailProviderEthereal(),
 );
 
+const diskStorage = {
+  local: StorageProviderInMemory,
+  s3: StorageProviderS3,
+};
+
 container.registerSingleton<IStorageProvider>(
   'StorageProvider',
-  StorageProviderInMemory,
+  diskStorage[process.env.DISK],
 );
