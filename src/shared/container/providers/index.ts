@@ -11,6 +11,7 @@ import { DateProviderDayjs } from '@shared/container/providers/DateProvider/impl
 
 import { IMailProvider } from '@shared/container/providers/MailProvider/IMailProvider';
 import { MailProviderEthereal } from '@shared/container/providers/MailProvider/implementations/ethereal/MailProvider';
+import { MailProviderSES } from '@shared/container/providers/MailProvider/implementations/ses/MailProvider';
 
 import { IStorageProvider } from '@shared/container/providers/StorageProvider/IStorageProvider';
 import { StorageProviderS3 } from '@shared/container/providers/StorageProvider/implementations/s3/StorageProvider';
@@ -25,9 +26,14 @@ container.registerSingleton<ITokenProvider>(
 
 container.registerSingleton<IDateProvider>('DateProvider', DateProviderDayjs);
 
+const mailProvider = {
+  ethereal: container.resolve(MailProviderEthereal),
+  ses: container.resolve(MailProviderSES),
+};
+
 container.registerInstance<IMailProvider>(
   'MailProvider',
-  new MailProviderEthereal(),
+  mailProvider[process.env.MAIL],
 );
 
 const diskStorage = {
