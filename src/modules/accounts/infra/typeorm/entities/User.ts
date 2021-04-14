@@ -1,4 +1,5 @@
 import { v4 as uuidV4 } from 'uuid';
+import { Expose } from 'class-transformer';
 
 import {
   Entity,
@@ -36,6 +37,18 @@ class User {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Expose({ name: 'avatar_url' })
+  avatar_url(): string {
+    switch (process.env.DISK) {
+      case 'local':
+        return `${process.env.APP_API_URL}/avatar/${this.avatar}`;
+      case 's3':
+        return `${process.env.AWS_BUCKET_URL}/avatar/${this.avatar}`;
+      default:
+        return null;
+    }
+  }
 
   constructor() {
     if (!this.id) {

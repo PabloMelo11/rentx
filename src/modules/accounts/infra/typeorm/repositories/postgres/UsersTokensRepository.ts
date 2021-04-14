@@ -6,6 +6,7 @@ import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTok
 
 import { ICreateUserTokenDTO } from '@modules/accounts/dtos/ICreateUserTokenDTO';
 import { IFindTokenByUserAndRefreshTokenDTO } from '@modules/accounts/dtos/IFindTokenByUserAndRefreshTokenDTO';
+import { ITokenType } from '@shared/dtos/ITokenTypeDTO';
 
 class UsersTokensRepositoryPostgres implements IUsersTokensRepository {
   private repository: Repository<UserTokens>;
@@ -28,7 +29,8 @@ class UsersTokensRepositoryPostgres implements IUsersTokensRepository {
   }: IFindTokenByUserAndRefreshTokenDTO): Promise<UserTokens> {
     const usersTokens = await this.repository.findOne({
       user_id,
-      refresh_token,
+      token: refresh_token,
+      type: ITokenType.refresh_token,
     });
 
     return usersTokens;
