@@ -1,6 +1,8 @@
 node_modules
+.vscode
 yarn-error.log
 coverage
+dist
 
 tmp/*
 !tmp/.gitkeep
