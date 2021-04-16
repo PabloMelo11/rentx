@@ -14,9 +14,12 @@ import upload from '@config/upload';
 import swaggerFile from '../../../swagger.json';
 import { router } from './routes';
 
+import rateLimiter from '@shared/infra/http/middlewares/rateLimiter';
+
 createConnection();
 
 const app = express();
+app.use(rateLimiter);
 app.use(express.json());
 app.use('/avatar', express.static(`${upload.tmpFolder}/avatar`));
 app.use('/cars', express.static(`${upload.tmpFolder}/cars`));
