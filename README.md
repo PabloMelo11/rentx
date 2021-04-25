@@ -28,9 +28,7 @@ Car rental software
 
 Import insomnia to test requests:
 
-<div align="center">
-  [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rentx%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FPabloMelo11%2Frentx-api-ts%2Fmaster%2Finsomnia.json)
-</div>
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rentx%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FPabloMelo11%2Frentx-api-ts%2Fmaster%2Finsomnia.json)
 
 ## 🚀 Technologies
 
