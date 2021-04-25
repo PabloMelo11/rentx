@@ -45,3 +45,31 @@ This project was developed with the following technologies:
 - [PostgreSQL](https://www.postgresql.org)
 - [Redis](https://redis.io)
 - [Docker](https://www.docker.com)
+
+## 🤔 Get Started
+
+- You will only need to have Node installed on your machine, and after that, clone this repository:
+
+```sh
+  $ git clone https://github.com/PabloMelo11/rentx-api-ts.git
+```
+
+- After that, run the command below to install the dependencies.
+
+```sh
+  $ yarn install
+```
+
+- Run docker compose
+
+```sh
+  docker-compose up
+```
+
+- Run application
+
+```sh
+  yarn dev
+```
+
+Made with ♥ by Pablo Melo :wave: [Get in touch!](https://www.linkedin.com/in/pablo-melo-377297161/)
